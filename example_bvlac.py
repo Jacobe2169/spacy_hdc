@@ -17,7 +17,7 @@ import spacy
 nlp_models = {lang:spacy.load(lang,disable=["ner","textcat"]) for lang in pd.unique(df.lang)}
 
 
-from corpus import CorpusHDC
+from spacy_hdc.corpus import CorpusHDC
 
 corpus_en=CorpusHDC(df_en,"en_corpus/doc",nlp_models["en"])
 corpus_en.create_corpus()

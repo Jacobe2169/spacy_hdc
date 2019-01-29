@@ -1,0 +1,6 @@
+numpy
+pandas
+tqdm
+spacy>=2.0
+textacy
+

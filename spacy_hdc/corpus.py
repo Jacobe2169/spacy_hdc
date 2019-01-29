@@ -7,7 +7,7 @@ import numpy as np
 import sys, os, re, json, glob
 import textwrap
 
-from helpers.filter import clean_text
+from .helpers.filter import clean_text
 from spacy.language import Language as SpacyLang
 tqdm.monitor_interval=0
 
@@ -45,7 +45,10 @@ class CorpusHDC:
         chunks=np.array_split(self.text_df.content.values.tolist(), round(len(self.text_df)/self.chunk_size))
         chunks_ids=np.array_split(list(range(len(self.text_df))),round(len(self.text_df)/self.chunk_size))
         chunks_ids=np.array([[i]*len(ch) for i,ch in enumerate(chunks_ids)]).flatten()
-        print(len(self.text_df),len(chunks_ids))
+        flat_=[]
+        for c in chunks_ids:
+            flat_.extend(c)
+        chunks_ids = flat_
         self.text_df["chunks_id"]=chunks_ids
 
         prev_chunk=0
@@ -61,8 +64,5 @@ class CorpusHDC:
     @staticmethod
     def load(self):
         pass
-
-    
-
 
 
