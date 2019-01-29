@@ -60,9 +60,6 @@ class CorpusHDC:
             prev_chunk=next_chunk_size
     
     def save(self):
-        pass
-    @staticmethod
-    def load(self):
-        pass
+        self.text_df.to_csv("{0}_{1}.csv".format(self.name,self.chunk_size))
 
 

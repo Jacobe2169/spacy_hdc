@@ -21,3 +21,4 @@ from spacy_hdc.corpus import CorpusHDC
 
 corpus_en=CorpusHDC(df_en,"en_corpus/doc",nlp_models["en"])
 corpus_en.create_corpus()
+corpus_en.save()
